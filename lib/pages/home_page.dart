@@ -69,12 +69,21 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     "Promo Today",
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 15),
+                  Container(
+                    height: 200,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [promoCard("")],
+                    ),
                   ),
                 ],
               ),
@@ -84,4 +93,28 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+Widget promoCard(image) {
+  return AspectRatio(
+    aspectRatio: 2 / 3,
+    child: Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        image: DecorationImage(
+          fit: BoxFit.cover,
+
+          image: AssetImage('assets/images/five.jpg'),
+        ),
+      ),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomRight,
+            colors: [const Color.fromARGB(255, 206, 204, 204), const Color.fromARGB(221, 234, 234, 234)],
+          ),
+        ),
+      ),
+    ),
+  );
 }
