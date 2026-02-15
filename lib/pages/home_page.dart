@@ -11,11 +11,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 245, 63, 124),
+      backgroundColor: const Color.fromARGB(255, 222, 221, 222),
       appBar: AppBar(
         title: Center(child: Text("M Y - A P P ")),
 
-        backgroundColor: const Color.fromARGB(255, 234, 107, 149),
+        backgroundColor: const Color.fromARGB(255, 226, 224, 225),
         leading: IconButton(
           onPressed: () {},
           icon: Icon(Icons.menu, color: Colors.black87),
@@ -82,7 +82,26 @@ class _HomePageState extends State<HomePage> {
                     height: 200,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
-                      children: [promoCard("")],
+                      children: [
+                        promoCard('assets/images/five.jpg'),
+                        promoCard('assets/images/two.jpg'),
+                        promoCard('assets/images/three.jpg'),
+                        promoCard('assets/images/four.jpg'),
+                        promoCard('assets/images/five.jpg'),
+                        promoCard('assets/images/five.jpg'),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Container(
+                    height: 200,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+
+                        image: AssetImage('assets/images/three.jpg'),
+                      ),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                   ),
                 ],
@@ -99,21 +118,13 @@ Widget promoCard(image) {
   return AspectRatio(
     aspectRatio: 2 / 3,
     child: Container(
+      margin: EdgeInsets.only(right: 15),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        image: DecorationImage(
-          fit: BoxFit.cover,
-
-          image: AssetImage('assets/images/five.jpg'),
-        ),
+        image: DecorationImage(fit: BoxFit.cover, image: AssetImage(image)),
       ),
       child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.bottomRight,
-            colors: [const Color.fromARGB(255, 206, 204, 204), const Color.fromARGB(221, 234, 234, 234)],
-          ),
-        ),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
       ),
     ),
   );
